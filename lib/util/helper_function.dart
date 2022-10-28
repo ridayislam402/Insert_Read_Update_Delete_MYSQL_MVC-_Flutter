@@ -35,3 +35,32 @@ void showUpdateDialog({
     ),
   );
 }
+
+
+void showDeleteDialog({
+  required BuildContext context,
+  required Function(bool) onDelete
+}){
+  showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text('Are you Sure'),
+      content: Padding(
+        padding: EdgeInsets.all(8),
+      ),
+      actions: [
+        TextButton(onPressed: () {
+          bool value = false;
+          onDelete(value);
+          Navigator.pop(context);
+        }, child: Text('Cancel')),
+        ElevatedButton(onPressed: () {
+          bool value = true;
+          onDelete(value);
+          Navigator.pop(context);
+        }, child: Text('Delete'))
+      ],
+    ),
+  );
+}

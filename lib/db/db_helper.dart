@@ -7,6 +7,8 @@ class DBHelper{
   final insertUrl = Uri.parse("https://ecommerceprojectriday.000webhostapp.com/app/insert.php");
   var readUrl=Uri.parse('https://ecommerceprojectriday.000webhostapp.com/app/read.php');
   var updateUrl=Uri.parse('https://ecommerceprojectriday.000webhostapp.com/app/update.php');
+  var deleteUrl = Uri.parse('https://ecommerceprojectriday.000webhostapp.com/app/delete.php');
+
 
   Future<Map> insert(CRUDModel crudModel)async {
     final res = await http.post(insertUrl, body: crudModel.toMap());
@@ -19,9 +21,14 @@ class DBHelper{
     return list;
   }
 
-  Future<int> updateById(String id,String column,dynamic value){
-
-
-
+  Future<Map> updateById(String? id,String column,dynamic value)async{
+    final res = await http.post(updateUrl, body: {crudId : id, crudDesc : value});
+    return jsonDecode(res.body);
   }
+
+  Future<Map> deleteById(String? id) async{
+    final res = await http.post(deleteUrl, body: {crudId : id});
+    return jsonDecode(res.body);
+  }
+
 }

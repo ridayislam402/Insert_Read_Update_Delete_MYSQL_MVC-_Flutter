@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insert_read_update_delete_mysql_flutter/pages/delete_page.dart';
 import 'package:insert_read_update_delete_mysql_flutter/pages/insert_page.dart';
 import 'package:insert_read_update_delete_mysql_flutter/pages/read_page.dart';
 import 'package:insert_read_update_delete_mysql_flutter/pages/update_page.dart';
@@ -15,6 +16,8 @@ class MenuPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('CRUD with MYSQL',style: TextStyle(fontSize: 30),),
+            SizedBox(height: 50,),
             ElevatedButton(onPressed: () {
             Navigator.pushNamed(context, InsertPage.routeName);
             }, child: Text('Insert')
@@ -31,7 +34,7 @@ class MenuPage extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             ElevatedButton(onPressed: () {
-
+              Navigator.pushNamed(context, DeletePage.routeName);
             }, child: Text('Delete')
             ),
           ],

@@ -14,8 +14,11 @@ class CRUDProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  Future<int> updateById(String id,String column,dynamic value){
+  Future<Map> updateById(String? id,String column,dynamic value){
     return DBHelper().updateById(id, column, value);
   }
 
+  Future<Map> deleteById(String? id){
+    return DBHelper().deleteById(id);
+  }
 }

@@ -44,7 +44,6 @@ class ReadPage extends StatelessWidget {
           return ListTile(
             title: Text(provider.list![index].name),
             trailing: Text(provider.list[index].desc),
-            leading: Text(provider.list[index].id.toString()),
 
           );
         },
