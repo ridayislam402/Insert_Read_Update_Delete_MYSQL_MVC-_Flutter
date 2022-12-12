@@ -96,13 +96,11 @@ class _InsertPageState extends State<InsertPage> {
         );
         //insert(response);
         Provider.of<CRUDProvider>(context,listen: false).insert(response).then((value){
-          setState(() {
             if(value != null){
               EasyLoading.dismiss();
               ponse = 'Data Inserted';
               Navigator.pushNamed(context, ReadPage.routeName);
             }
-          });
 
         }).catchError((error)
             {

@@ -40,12 +40,14 @@ class _DeletePageState extends State<DeletePage> {
                             EasyLoading.show(status: 'loading...');
                             if(val){
                               print('true');
-                              provider.deleteById(provider.list[index].id).then((value) {
+                            //  Provider.of<CRUDProvider>(context,listen: false).deleteById(provider.list[index].id);
+                              provider.deleteById(provider.list[index].id)
+                              .then((value) {
                                 setState(() {
                                   if(value != null){
                                     print('ok now $value');
                                     EasyLoading.dismiss();
-                                    //  ponse = 'Data Inserted';
+                                     // ponse = 'Data Inserted';
                                     //  Navigator.pushNamed(context, ReadPage.routeName);
                                   }
                                 });
